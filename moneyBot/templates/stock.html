@@ -1,0 +1,43 @@
+<html>
+
+	<head><title>Current Stocks</title></head>
+<body>
+	<h1>Current Stocks</h1>
+	{% if price1 %}
+  		<h1>Should you buy {{stock1}}? {{bool1}}</h1>	
+ 	 	<h1>Time Execution : {{time1}} </h1>	
+ 	 	{% endif %}
+	{% if price2 %}	
+  		<h1>Should you buy {{stock2}}? {{bool2}}</h1>	
+ 	 	<h1>Time Execution : {{time2}} </h1>	
+	{% endif %}
+	{% if price3 %}
+  		<h1>Should you buy {{stock3}}? {{bool3}}</h1>	
+ 	 	<h1>Time Execution : {{time3}} </h1>	
+	{% endif %}
+	{% if price4 %}
+  		<h1>Should you buy {{stock4}}? {{bool4}}</h1>	
+ 	 	<h1>Time Execution : {{time4}} </h1>	
+	{% endif %}
+	{% if price5 %}
+  		<h1>Should you buy {{stock5}}? {{bool5}}</h1>	
+ 	 	<h1>Time Execution : {{time5}} </h1>	
+	{% endif %}
+
+
+<!-- Script -->
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+    setInterval("ajaxd()",2000); // call every 10 seconds
+});
+function ajaxd() { 
+  //reload result into element with id "sysStatus"
+  $("#sysStatus").load("/stock", function() {  alert( "Load was performed." ); });
+  console.log("loaded")
+
+}
+</script>
+</body>
+</html>
+

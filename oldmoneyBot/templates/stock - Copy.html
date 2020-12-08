@@ -1,0 +1,60 @@
+<html>
+
+	<head><title>Current Stocks</title></head>
+<body>
+	<h1>The Greedy Algorithmn method</h1>
+	<h1>Remaining money {{greedCash}}</h1>
+
+	{% if price1 %}
+  		<h1>The current amount of {{stock1}} owned is {{ownership1}}. The current price is ${{price1}}. The total worth of stock is ${{worth1}}</h1>	
+ 	 	<h1>The average ROI {{averagePrice1}} </h1>
+ 	 	<form method="get" action="/stock">
+ 	 	<input type="submit" name="Update" value="Update1">
+ 	 	</form>
+	{% endif %}
+	{% if price2 %}	
+		<h1>The current amount of {{stock2}} owned is {{ownership2}}. The current price is ${{price2}}. The total worth of stock is ${{worth2}}</h1>
+	  	<h1>The average ROI {{averagePrice2}} </h1>
+	  	<form method="get" action="/stock">
+	  	<input type="submit" name="Update" value="Update2">
+	  </form>
+	{% endif %}
+	{% if price3 %}
+		<h1>The current amount of {{stock3}} owned is {{ownership3}}. The current price is ${{price3}}. The total worth of stock is ${{worth3}}</h1>
+	  	<h1>The average ROI {{averagePrice3}} </h1>
+	  	<form method="get" action="/stock">
+	  	<input type="submit" name="Update" value="Update3">
+	  </form>
+	{% endif %}
+	{% if price4 %}
+		<h1>The current amount of {{stock4}} owned is {{ownership4}}. The current price is ${{price4}}. The total worth of stock is ${{worth4}}</h1>
+	  	<h1>The average ROI {{averagePrice4}} </h1>
+	  	<form method="get" action="/stock">
+	  	<input type="submit" name="Update" value="Update4">
+	  </form>
+	{% endif %}
+	{% if price5 %}
+		<h1>The current amount of {{stock5}} owned is {{ownership5}}. The current price is ${{price5}}. The total worth of stock is ${{worth5}}</h1>
+	  	<h1>The average ROI {{averagePrice5}} </h1>
+	  	<form method="get" action="/stock">
+	  	<input type="submit" name="Update" value="Update5">
+	  </form>
+	{% endif %}
+
+
+<!-- Script -->
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+    setInterval("ajaxd()",2000); // call every 10 seconds
+});
+function ajaxd() { 
+  //reload result into element with id "sysStatus"
+  $("#sysStatus").load("/stock", function() {  alert( "Load was performed." ); });
+  console.log("loaded")
+
+}
+</script>
+</body>
+</html>
+
